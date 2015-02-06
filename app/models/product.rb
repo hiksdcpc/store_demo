@@ -2,9 +2,9 @@ class Product < ActiveRecord::Base
   has_many :warehouses
   has_many :stores, through: :warehouses
 
-  scope :available, -> { where(is_available: true).order("id DESC").limit(3)  }
+  validates :name, presence: true, begin_with_ruby: true
 
-  #def self.available
-    #where(is_available: true)
-  #end
+  scope :available, -> { where(is_available: true) }
+  scope :price_over, ->(p) { available.where(["price > ?", p]).order('id') }
+
 end
