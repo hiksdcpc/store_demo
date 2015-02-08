@@ -1,23 +1,30 @@
 <% if @store.errors.any? %>
-<ul>
-  <% @store.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-</ul>
+<div class="panel panel-danger">
+  <div class="panel-heading">錯誤訊息</div>
+  <div class="panel-body">
+    <ul>
+      <% @store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 <% end %>
 
 <%= form_for(@store) do |f| %>
   <%= f.label :name, "名稱" %>
-  <%= f.text_field :name, placeholder:'請填寫商店名稱' %>
+  <%= f.text_field :name, class:'form-control', placeholder:'請填寫商店名稱' %>
   <br />
 
   <%= f.label :adress, "地址" %>
-  <%= f.text_field :adress, placeholder:'請填寫商店地址' %>
+  <%= f.text_field :adress, class:'form-control', placeholder:'請填寫商店地址' %>
 
   <br />
   <%= f.label :tel, "電話" %>
-  <%= f.text_field :tel, placeholder:'請填寫商店電話' %>
+  <%= f.text_field :tel, class:'form-control', placeholder:'請填寫商店電話' %>
 
   <br />
-  <%= f.submit '送出' %>
+  <%= f.submit '送出', class:'btn btn-primary' %>
+  <br />
+  <br />
 <% end %>
