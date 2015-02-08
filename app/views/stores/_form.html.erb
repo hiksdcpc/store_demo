@@ -1,0 +1,23 @@
+<% if @store.errors.any? %>
+<ul>
+  <% @store.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for(@store) do |f| %>
+  <%= f.label :name, "名稱" %>
+  <%= f.text_field :name, placeholder:'請填寫商店名稱' %>
+  <br />
+
+  <%= f.label :adress, "地址" %>
+  <%= f.text_field :adress, placeholder:'請填寫商店地址' %>
+
+  <br />
+  <%= f.label :tel, "電話" %>
+  <%= f.text_field :tel, placeholder:'請填寫商店電話' %>
+
+  <br />
+  <%= f.submit '送出' %>
+<% end %>

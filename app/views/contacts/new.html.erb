@@ -1,0 +1,12 @@
+<h1>聯絡我們</h1>
+
+<%= form_for(@contact) do |f| %>
+  <%= f.label :from, "寄件者" %>
+  <%= f.text_field :from, class:'form-control', placeholder:'請填寫 Email' %><br />
+  <%= f.label :title, "標題" %>
+  <%= f.text_field :title, class:'form-control' %><br />
+  <%= f.label :content, "內容" %>
+  <%= f.text_area :content, class:'form-control' %><br />
+  <br />
+  <%= f.submit '送出', class:'btn btn-primary' %>
+<% end %>

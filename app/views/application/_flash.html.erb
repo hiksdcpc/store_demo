@@ -1,0 +1,5 @@
+<% if flash.any? %>
+ <% flash.keys.each do |flash_type| %>
+  <p class="<%= flash_type %>"><%= flash[flash_type] %></p>
+ <% end %>
+<% end %>
