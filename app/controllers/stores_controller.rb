@@ -2,7 +2,7 @@ class StoresController < ApplicationController
   before_action :find_store, only:[:destroy, :show, :edit, :update]
 
   def index
-    @stores = Store.all
+    @stores = Store.page(params[:page]).order('votes_count DESC').per(10)
   end
 
   def destroy

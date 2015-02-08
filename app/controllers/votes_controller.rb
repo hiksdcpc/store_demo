@@ -5,7 +5,9 @@ class VotesController < ApplicationController
       if voted_store.nil?
         flash[:notice] = "查無此商家"
       else
-        voted_store.users << current_user
+        Vote.create(user: current_user,
+                    store: voted_store,
+                    ip_address: request.remote_ip)
         flash[:notice] = "投票成功!"
       end
     else
